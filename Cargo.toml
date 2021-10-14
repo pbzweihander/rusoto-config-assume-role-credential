@@ -1,0 +1,21 @@
+[package]
+name = "rusoto-config-assume-role-credential"
+description = "rusoto credential provider that assume role in config"
+version = "0.1.0"
+edition = "2018"
+repository = "https://github.com/pbzweihander/rusoto-config-assume-role-credential"
+
+[features]
+default = ["native-tls"]
+
+native-tls = ["rusoto_core/native-tls", "rusoto_sts/native-tls"]
+rustls = ["rusoto_core/rustls", "rusoto_sts/rustls"]
+
+[dependencies]
+async-trait = "0.1.51"
+dirs = "4.0.0"
+regex = "1.5.4"
+rusoto_core = { version = "0.47.0", default-features = false }
+rusoto_credential = "0.47.0"
+rusoto_sts = { version = "0.47.0", default-features = false }
+tokio = { version = "1.12.0", default-features = false, features = ["sync"] }
